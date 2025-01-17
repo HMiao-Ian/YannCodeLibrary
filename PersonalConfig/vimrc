@@ -1,0 +1,81 @@
+let mapleader = ','
+
+inoremap <leader>w <Esc>:w<CR>
+
+syntax on
+set nu
+set nocompatible
+set hls
+set laststatus=2
+set background=dark
+
+colorscheme gruvbox
+
+
+set tabstop=4
+set autoindent
+set autoread
+set history=400
+set confirm
+set smartindent
+set shiftwidth=4
+set cursorline cursorcolumn
+set guicursor=n-c-v:ver50-ncvCursor
+set guicursor=i:block-iCursor-blinkon0,v:block-vCursor
+
+" 配色方案
+" set t_Co=256 " 设置Vim支持256色,上文已介绍过
+"
+" 开启True-Color,注意,不支持真彩色的终端将显示异常
+if has("termguicolors")
+    " fix bug for vim
+    set t_8f=[38;2;%lu;%lu;%lum "这里^[[38中的^[需要替换,使用ctrol+v然后按esc
+    set t_8b=[48;2;%lu;%lu;%lum "这里^[[38中的^[需要替换,使用ctrol+v然后按esc
+    " enable true color
+    set termguicolors
+endif
+
+noremap <C-h> <C-w>h
+noremap <C-j> <C-w>j
+noremap <C-k> <C-w>k
+noremap <C-l> <C-w>l
+
+autocmd vimenter * NERDTree
+nnoremap <leader>v :NERDTreeFind<CR>
+nnoremap <leader>g :NERDTreeToggle<CR>
+
+call plug#begin('~/.vim/plugged')
+" The default plugin directory will be as follows:
+"   - Vim (Linux/macOS): '~/.vim/plugged'
+"   - Vim (Windows): '~/vimfiles/plugged'
+"   - Neovim (Linux/macOS/Windows): stdpath('data') . '/plugged'
+" You can specify a custom plugin directory by passing it as the argument
+"   - e.g. `call plug#begin('~/.vim/plugged')`
+"   - Avoid using standard Vim directory names like 'plugin'
+
+" Make sure you use single quotes
+
+" Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
+
+
+Plug 'morhetz/gruvbox'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'w0ng/vim-hybrid'
+Plug 'preservim/nerdtree'
+Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
+
+
+" Initialize plugin system
+" - Automatically executes `filetype plugin indent on` and `syntax enable`.
+call plug#end()
+" You can revert the settings after the call like so:
+"   filetype indent off   " Disable file-type-specific indentation
+"   syntax off            " Disable syntax highlightingkk
+
+let g:pymode_python = 'python3'
+let g:pymode_trim_whitespaces = 1
+let g:pymode_lint = 1
+let g:pymode_options_max_line_length = 120
+let g:pymode_rope_goto_definition_bind = "<C-]>"
+let g:pymode_lint_checkers = ['pyflakes', 'pep8', 'mccabe', 'pylint']
