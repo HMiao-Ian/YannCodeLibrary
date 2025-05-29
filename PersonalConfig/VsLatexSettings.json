@@ -1,0 +1,131 @@
+{
+    "workbench.colorTheme": "Gruvbox Dark Hard",
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter-notebook"
+    },
+    "notebook.cellToolbarLocation": {
+        "default": "right",
+        "jupyter-notebook": "left"
+    },
+    "files.autoSave": "afterDelay",
+
+    "latex-workshop.latex.tools": [
+    {
+        "name": "latexmk",
+        "command": "latexmk",
+        "args": [
+            "-synctex=1",
+            "-interaction=nonstopmode",
+            "-file-line-error",
+            "-pdf",
+            "-outdir=%OUTDIR%",
+            "%DOC%"
+            ],
+            "env": {}
+    },
+    {
+        // 编译工具和命令
+      
+        "name": "xelatex",
+        "command": "xelatex",
+        "args": [
+            "-synctex=1",
+            "-interaction=nonstopmode",
+            "-file-line-error",
+            "-pdf",
+            "%DOCFILE%"
+        ]
+    },
+    {
+        "name": "pdflatex",
+        "command": "pdflatex",
+        "args": [
+            "-synctex=1",
+            "-interaction=nonstopmode",
+            "-file-line-error",
+            "%DOCFILE%"
+        ]
+    },
+    {
+        "name": "bibtex",
+        "command": "bibtex",
+        "args": [
+            "%DOCFILE%"
+        ]
+    },
+    {
+        // Yann-add, 2024.09.20, 17:05
+        "name": "biber",
+        "command": "biber",
+        "args": [
+            "%DOCFILE%"
+        ]
+    }
+    ],
+
+    "latex-preview.command": "latexmk",
+
+    "latex-workshop.latex.recipes": [
+    {
+        "name": "latexmk",
+        "tools": [
+        "latexmk"
+        ]
+    },
+    {
+        "name": "xelatex",
+        "tools": [
+        "xelatex"
+        ]
+    },
+    {
+        "name": "pdflatex",
+        "tools": [
+        "pdflatex"
+        ]
+    },
+    {
+        "name": "xelatex ➞ bibtex ➞ xelatex × 2",
+        "tools": [
+        "xelatex",
+        "bibtex",
+        "xelatex",
+        "xelatex"
+        ]
+    },
+    {
+        "name": "pdflatex ➞ bibtex ➞ pdflatex × 2",
+        "tools": [
+        "pdflatex",
+        "bibtex",
+        "pdflatex",
+        "pdflatex"
+        ]
+    },
+    {
+        // Yann-add, 2024.09.20, 17:05
+        "name": "xelatex ➞ biber ➞ xelatex × 2",
+        "tools": [
+        "xelatex",
+        "biber",
+        "xelatex",
+        "xelatex"
+        ]
+    },
+    ],
+    "[python]": {
+        "editor.formatOnType": true
+    },
+    "python.defaultInterpreterPath": "D:\\Yann\\miniconda3\\python.exe",
+    "latex-workshop.latex.autoBuild.run": "never",
+    "tabnine.experimentalAutoImports": true,
+    "gitlens.views.commitDetails.files.layout": "tree",
+    "git.confirmSync": false,
+    "git.autofetch": true,
+    "debug.disassemblyView.showSourceCode": false,
+    "code-runner.runInTerminal": true,
+    "editor.unicodeHighlight.ambiguousCharacters": false,
+    "remote.SSH.remotePlatform": {
+        "bigserver": "linux"
+    }
+}
